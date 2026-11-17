@@ -7,5 +7,11 @@
     productNames: ".inventory_item_name ",
     productDescriptions:".inventory_item_desc",
     productPrices: ".inventory_item_price",
-    addToCartButtons : ".btn_inventory"
+    addToCartButtons : ".btn_inventory",
+    filterDropdown : ".product_sort_container",
+    filterNameAtoZ: "option[value='az']",
+    filterNameZtoA: "option[value='za']",
+    filterPriceLowToHigh: "option[value='lohi']",
+    filterPriceHighToLow: "option[value='hilo']"
+
  }

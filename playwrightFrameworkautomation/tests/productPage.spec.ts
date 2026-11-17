@@ -1,4 +1,4 @@
-import {test,expect} from '@playwright/test';
+import {test,expect,Page} from '@playwright/test';
 import {ProductPage} from '../pages/ProductPage';
 import {LoginPage} from '../pages/LoginPage';
 import {LoginLocators} from '../locators/LoginLocators';
@@ -42,4 +42,39 @@ test.describe('product page validation', ()=>{
         test('validate adding some specific products to cart from product page',async ({page})=>{
         await productPage.addSpecificProductsToCart(productsToCart);
     })
+
+
+    test('filter byt name A to z', async ({page})=>{
+        await productPage.filterByNameAtoZ();
+        const names = await productPage.getProductNames();
+        const sorted  = [...names].sort();
+        expect(names).toEqual(sorted);
+
+    })
+
+        test('filter byt name Z to A', async ({page})=>{
+        await productPage.filterByNameZtoA();
+        const names = await productPage.getProductNames();
+        const sorted  = [...names].sort().reverse();
+        await page.waitForTimeout(3000);
+        expect(names).toEqual(sorted);
+    })
+
+        test('filter by price low to high', async ({page})=>{
+        await productPage.filterByPriceLowToHigh();
+        await productPage.getProductPrices();
+        const prices = await productPage.getProductPrices();
+        const sortedPrice = [...prices].sort((a, b) => a - b);
+        await page.waitForTimeout(5000);
+        expect(prices).toEqual(sortedPrice);
+    })
+
+        test('filter by price high to low', async ({page})=>{
+        await productPage.filterByPriceHighToLow();
+        const prices = await productPage.getProductPrices();
+        const sortedPrice = [...prices].sort((a, b) => b - a);
+        await page.waitForTimeout(5000);
+        expect(prices).toEqual(sortedPrice);
+    })
+
 })
