@@ -4,6 +4,7 @@ import {LoginPage} from '../pages/LoginPage';
 import {LoginLocators} from '../locators/LoginLocators';
 import {BASE_URL,USERNAME,PASSWORD} from '../utils/envConfig';
 import { ProductPageLocators } from '../locators/ProductPageLocators';
+import { productsToCart } from '../test-data/product';
 
 
 test.describe('product page validation', ()=>{
@@ -30,5 +31,15 @@ test.describe('product page validation', ()=>{
         await expect(page.locator(ProductPageLocators.tryifFreeButton)).toBeVisible();
         await page.goBack();
         await expect(page.locator(ProductPageLocators.settingicon)).toBeVisible();
+    })
+
+    test('validate product page',async ({page})=>{
+        await productPage.validateAllProductsDisplayed();
+        await productPage.addOnlyFirstProductToCart();
+        await productPage.addAllProductsToCart();
+    })
+
+        test('validate adding some specific products to cart from product page',async ({page})=>{
+        await productPage.addSpecificProductsToCart(productsToCart);
     })
 })

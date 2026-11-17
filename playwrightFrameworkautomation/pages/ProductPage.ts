@@ -20,4 +20,44 @@ export class ProductPage
          await this.page.click(ProductPageLocators.settingicon);
          await this.page.click(ProductPageLocators.aboutLink);
     }
+
+    async validateAllProductsDisplayed(){
+        const names = await this.page.locator(ProductPageLocators.productNames).allTextContents();
+        const descriptions = await this.page.locator(ProductPageLocators.productDescriptions).allTextContents();
+        const prices = await this.page.locator(ProductPageLocators.productPrices).allTextContents();
+        const buttonCount = await this.page.locator(ProductPageLocators.addToCartButtons).count();
+
+        if (names.length === 0)
+            throw new Error("no new product dound");
+
+        if (names.length !== descriptions.length || names.length !== prices.length || names.length !== buttonCount)
+            throw new Error("inconsistent product information");
+    }
+
+    async addOnlyFirstProductToCart(){
+        await this.page.locator(ProductPageLocators.addToCartButtons).first().click();
+    }
+
+    async addAllProductsToCart(){
+        const buttons = this.page.locator(ProductPageLocators.addToCartButtons);
+        const count = await buttons.count();
+
+        for (let i = 0; i<count; i++){
+            await buttons.nth(i).click();
+            await this.page.waitForTimeout(3000);
+        }
+    }
+
+    async addSpecificProductsToCart(productName:string[]){
+        const addProducts = this.page.locator(ProductPageLocators.productNames);
+        const count = await addProducts.count();
+
+        for (let i = 0; i<count; i++){
+            const name = await addProducts.nth(i).textContent();
+            if (name && productName.includes(name.trim())){
+                await this.page.locator(ProductPageLocators.addToCartButtons).nth(i).click();
+                await this.page.waitForTimeout(3000);
+            }
+        }
+    }
 }
