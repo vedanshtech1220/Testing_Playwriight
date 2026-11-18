@@ -12,6 +12,7 @@
     filterNameAtoZ: "option[value='az']",
     filterNameZtoA: "option[value='za']",
     filterPriceLowToHigh: "option[value='lohi']",
-    filterPriceHighToLow: "option[value='hilo']"
-
+    filterPriceHighToLow: "option[value='hilo']",
+    cartLink : ".shopping_cart_link",
+    
  }
