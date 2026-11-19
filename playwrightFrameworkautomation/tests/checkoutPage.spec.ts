@@ -31,7 +31,7 @@ test.beforeEach(async ({page}) => {
         await productPage.clickOnCartLink();
 })
  
-test.only('Validate checkout page UI ELements and url', async({page})=>{
+test('Validate checkout page UI ELements and url', async({page})=>{
     await cartPage.clickCheckoutButton();
     await expect(page).toHaveURL('https://www.saucedemo.com/checkout-step-one.html');
     const elements = await checkoutPage.getCheckoutElements();
@@ -51,6 +51,14 @@ test('Validate continue button functionality', async({page})=>{
     await cartPage.clickCheckoutButton();
     await checkoutPage.fillCheckoutDetails(checkoutData.firstName,checkoutData.lastName,checkoutData.postalCode);
     await checkoutPage.clickOnContinue();
+})
+
+
+test.only('validate error message when clicking on continue with no data', async({page}) => {
+    await cartPage.clickCheckoutButton();
+    await checkoutPage.clickOnContinue();
+    const error = await checkoutPage.getErrorMessage();
+    expect(error?.trim()).toBe("Error: First Name is required");
 })
 
 

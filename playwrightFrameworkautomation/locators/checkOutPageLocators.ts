@@ -5,5 +5,6 @@ export const checkOutPageLocators = {
     firstName : "#first-name",
     lastName: "#last-name",
     postalCode : "#postal-code",
+    errMsg : '[data-test="error"]',
 
 }

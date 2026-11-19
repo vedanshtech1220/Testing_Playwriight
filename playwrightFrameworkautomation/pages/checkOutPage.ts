@@ -29,5 +29,8 @@ export class CheckOutPage{
         await this.page.click(checkOutPageLocators.continueButton);
     }
 
+    async getErrorMessage(){
+        return await this.page.locator(checkOutPageLocators.errMsg).textContent();
+    }
 }
 
