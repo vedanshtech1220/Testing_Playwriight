@@ -4,7 +4,7 @@ export const checkoutOverviewLocators = {
     productDescriptions:".inventory_item_desc",
     productPrices: ".inventory_item_price",
     cancelButton : '#cancel',
-    finishButton : '#finsih',
+    finishButton : '#finish',
     itemTotal : '.summary_subtotal_label',
     tax:'.summary_tax_label',
     total : '.summary_total_label'

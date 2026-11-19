@@ -28,19 +28,19 @@ export class CheckoutOverviewPage {
 
     async getItemTotal(){
         const text = await this.page.locator(checkoutOverviewLocators.itemTotal).textContent();
-        return text?.replace('Item total: $', "").trim();
+        return parseFloat(text!.replace('Item total: $', "").trim());
 
     }
 
     async getTax(){
         const text = await this.page.locator(checkoutOverviewLocators.tax).textContent();
-        return text?.replace('Item total: $', "").trim();
+        return parseFloat(text!.replace('Item total: $', "").trim());
 
     }
 
     async getTotal(){
         const text = await this.page.locator(checkoutOverviewLocators.total).textContent();
-        return text?.replace('Item total: $', "").trim();
+        return parseFloat(text!.replace('Item total: $', "").trim());
     }
     async clickCancel(){
         await this.page.locator(checkoutOverviewLocators.cancelButton).click();
