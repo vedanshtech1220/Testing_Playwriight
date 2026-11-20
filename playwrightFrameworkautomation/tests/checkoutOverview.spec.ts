@@ -62,6 +62,7 @@ test.beforeEach(async ({page}) => {
     })
 
     test.only('validate final total (ItemTotal+tax)',async({page}) => {
+        
         const itemTotal = await checkoutOverview.getItemTotal();
         const tax = await checkoutOverview.getTax();
         const finalTotal = await checkoutOverview.getTotal();
