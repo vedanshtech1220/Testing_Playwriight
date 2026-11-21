@@ -1,14 +1,14 @@
 import {test,expect,Page} from '@playwright/test';
-import {ProductPage} from '../pages/ProductPage';
-import {LoginPage} from '../pages/LoginPage';
-import {LoginLocators} from '../locators/LoginLocators';
-import {BASE_URL,USERNAME,PASSWORD} from '../utils/envConfig';
-import { ProductPageLocators } from '../locators/ProductPageLocators';
-import { productsToCart } from '../test-data/product';
-import { CartPage } from '../pages/CartPage';
-import { CheckOutPage } from '../pages/checkOutPage';
-import {checkoutData} from '../test-data/checkoutData'; 
-import { CheckoutOverviewPage } from '../pages/checkoutOverviewPage';
+import {ProductPage} from '../../../pages/ProductPage';
+import {LoginPage} from '../../../pages/LoginPage';
+import {LoginLocators} from '../../../locators/LoginLocators';
+import {BASE_URL,USERNAME,PASSWORD} from '../../../utils/envConfig';
+import { ProductPageLocators } from '../../../locators/ProductPageLocators';
+import { productsToCart } from '../../../test-data/product';
+import { CartPage } from '../../../pages/CartPage';
+import { CheckOutPage } from '../../../pages/checkOutPage';
+import {checkoutData} from '../../../test-data/checkoutData'; 
+import { CheckoutOverviewPage } from '../../../pages/checkoutOverviewPage';
 
 
 test.describe('Checkout Overview  validation', ()=>{

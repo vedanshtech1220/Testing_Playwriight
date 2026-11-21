@@ -11,6 +11,7 @@ import {checkoutData} from '../test-data/checkoutData';
 import { CheckoutOverviewPage } from '../pages/checkoutOverviewPage';
 import { FinalPage } from '../pages/finalPage';
 
+
 test.describe('Final Page after checkout validation', ()=>{
     let loginPage : LoginPage
     let productPage: ProductPage
@@ -51,7 +52,7 @@ test.beforeEach(async ({page}) => {
 
     })
 
-    test.only('validate the success Message', async ({page})=>{
+    test('validate the success Message', async ({page})=>{
         const message = await finalPage.getSuccessMsgText();
         expect(message).toBe ("Thank you for your order!")
     })

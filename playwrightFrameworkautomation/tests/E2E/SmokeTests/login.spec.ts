@@ -1,7 +1,7 @@
 import {test,expect} from '@playwright/test';
 
-import {LoginPage} from '../pages/LoginPage';
-import {BASE_URL,USERNAME,PASSWORD} from '../utils/envConfig';
+import {LoginPage} from '../../../pages/LoginPage';
+import {BASE_URL,USERNAME,PASSWORD} from '../../../utils/envConfig';
 
 test('login to sauceDemo application with valid credentials right', async({page})=>{
 

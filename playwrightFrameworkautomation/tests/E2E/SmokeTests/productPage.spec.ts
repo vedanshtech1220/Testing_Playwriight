@@ -1,10 +1,10 @@
 import {test,expect,Page} from '@playwright/test';
-import {ProductPage} from '../pages/ProductPage';
-import {LoginPage} from '../pages/LoginPage';
-import {LoginLocators} from '../locators/LoginLocators';
-import {BASE_URL,USERNAME,PASSWORD} from '../utils/envConfig';
-import { ProductPageLocators } from '../locators/ProductPageLocators';
-import { productsToCart } from '../test-data/product';
+import {ProductPage} from '../../../pages/ProductPage';
+import {LoginPage} from '../../../pages/LoginPage';
+import {LoginLocators} from '../../../locators/LoginLocators';
+import {BASE_URL,USERNAME,PASSWORD} from '../../../utils/envConfig';
+import { ProductPageLocators } from '../../../locators/ProductPageLocators';
+import { productsToCart } from '../../../test-data/product';
 
 
 test.describe('product page validation', ()=>{
